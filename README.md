@@ -19,7 +19,7 @@ This projcet is a good practice to build IAC in GCP using Terraform:
 </p>
 
 ### :rocket: Get started
-* First after installing gcloud you authenticate you local machine to access [GCP Console](https://console.cloud.google.com/):
+* First, After installing gcloud, you should authenticate you local machine to access [GCP Console](https://console.cloud.google.com/):
    ```bash
     gcloud init
     ```
@@ -29,11 +29,11 @@ This projcet is a good practice to build IAC in GCP using Terraform:
    ```bash
     gcloud config set project <PROJECT_ID>
     ```
-* Second change directory to project folder that was cloned:
+* Second, Change directory to project folder that was cloned:
   ```bash
     cd /GCP_Infrastructure_with_Terraform
     ```
-* After that start to build the infrastructure by run:
+* After that, Start to build the infrastructure by run:
   ```bash
     terraform init
     ```
@@ -43,18 +43,18 @@ This projcet is a good practice to build IAC in GCP using Terraform:
   ```bash
     terrafrom apply --var-file=input.tfvars
     ```
-*  Then if you go to your project that created in GCP you will find that the following resources built:
-    
+*  Then, If you go to your project that is created in GCP, you will find that the following resources are built:
+   
     * VPC named "vpc"
     * 2 Subnets "management", "restricted"
-    * 3 Service Accounts
+    * 2 Service Accounts
         * "vm-service-account" used by Management VM 
         * "nodes-services-account" used by Kubernetes cluster
-    * NAT in "management" Subnetwork
+    * NAT in "management" as private subnetwork
     * Private Virtual Machine in "management" subnetwork to manage the private cluster.
     * Private Kubernetes cluster in "restricted" subnetwork with 3 worker nodes.
  ### Note
-     Only VMs in "management" subnetwork can access the Kubernetes cluster.
+     Only VM in "management" subnetwork can access the Kubernetes cluster.
      
      
 ### Build & Push Docker Image to GCR
