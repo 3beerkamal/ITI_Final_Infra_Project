@@ -20,7 +20,7 @@ resource "google_compute_instance" "iti" {
   network_interface {
     network = module.iti.vpc_id
     subnetwork = module.iti.management_id
-    # network_ip = var.vm_ip
+    #network_ip = var.vm_ip
   }
 
 #================================== vm service account ==========================
@@ -31,5 +31,4 @@ resource "google_compute_instance" "iti" {
     scopes = ["cloud-platform"]
   }
 
-  tags = [ "web" ]
 }
