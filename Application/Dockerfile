@@ -4,5 +4,4 @@ COPY . /app
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN export $(cat .env | xargs)
-EXPOSE 3030
 CMD [ "python", "hello.py" ]

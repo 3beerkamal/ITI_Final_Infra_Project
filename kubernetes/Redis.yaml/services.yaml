@@ -10,5 +10,5 @@ spec:
     name: redis-pod
     app: python-demo-app
   ports:
-  - port: 9090
-    targetPort: 9090
+  - port: 6379
+    targetPort: 6379
