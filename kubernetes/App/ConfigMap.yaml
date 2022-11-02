@@ -6,6 +6,6 @@ data:
   ENVIRONMENT: "DEV"
   HOST: "localhost"
   PORT: "8000"
-  REDIS_HOST: "redis-svc"
+  REDIS_HOST: "redis.default.svc.cluster.local"
   REDIS_PORT: "6379"
   REDIS_DB: "0"

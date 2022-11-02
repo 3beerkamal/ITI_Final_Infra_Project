@@ -4,11 +4,11 @@ metadata:
   name: redis
   labels:
     name: redis-service
-    app: python-demo-app
+    app: python-app
 spec:
   selector:
     name: redis-pod
-    app: python-demo-app
+    app: python-app
   ports:
   - port: 6379
     targetPort: 6379

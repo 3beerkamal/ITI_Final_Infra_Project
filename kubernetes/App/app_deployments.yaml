@@ -16,10 +16,10 @@ spec:
     spec:
       containers:
       - name: python-container
-        image: us.gcr.io/terraform-project-367105/python-app:1.0
+        image: gcr.io/terraform-project-367105/python-app
         ports:
         - containerPort: 8000
         envFrom:
-          - configMapRef:
-              name : my-python-app
+        - configMapRef:
+            name : my-python-app
           
