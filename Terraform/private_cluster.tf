@@ -44,9 +44,9 @@ resource "google_container_node_pool" "primary_nodes" {
     }
 
     node_config {
-        machine_type = "n1-standard-1"
+        machine_type = "e2-medium"
         disk_type = "pd-standard"
-        disk_size_gb = 20
+        disk_size_gb = 30
 
         # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
         service_account = google_service_account.cluster_service_account.email
