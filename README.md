@@ -55,11 +55,10 @@ This projcet is a good practice to build IAC in GCP using Terraform:
     * Private Kubernetes cluster in "restricted" subnetwork with 3 worker nodes.
  ### Note
      Only VM in "management" subnetwork can access the Kubernetes cluster.
-     
-     
-### Build & Push Docker Image to GCR
-* Build the Docker Image in your local machine by run
-
+    
+ ### Setup Jenkins as a master on GKE cluster
+ * Dockerized jenkins image with docker installed then pushed it to GCR
+ 
     ```bash
     cd /App
     docker build . -t [python-app]
@@ -79,10 +78,10 @@ This projcet is a good practice to build IAC in GCP using Terraform:
     docker push eu.gcr.io/<project_id>/<python-app>:1.0
     ```
     
-### Deploy image on private cluster
+### Deploy Jenkins on cluster using [Deployment Yaml Files](https://github.com/3beerkamal/ITI_Final_Infra_Project/tree/master/Jenkins_deployments)
 * After the infrastructure got built, now you can login to the "management-vm" VM using SSH then:
     
-    * Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) tool
+    * Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) tool on VM manager
     * setup cluster credentials
     
         ```bash
@@ -94,13 +93,15 @@ This projcet is a good practice to build IAC in GCP using Terraform:
         ```bash 
         kubectl cluster-info
         ```
-    * Upload the "kubernetes" dir to the VM and run
+    * Upload the "kubernetes" dir to the VM and run using Bucket on GCP Console
     
+        ```bash
+        kubectl apply -f <Jenkins_Yaml_Files>
         ```
-        kubectl apply -f kubernetes/
-        ```
----
-Now, you can access the Demo App by hitting the Ingress IP 
+    * Finally hit LoadBalancer IP & Jenkins port to access Jenkins Master Server [http://35.243.227.132:8080]
+
+![10](https://user-images.githubusercontent.com/31750138/199674425-37887d0d-b2d6-44de-a89a-ce8134765393.png)
+
     
     
     
