@@ -20,7 +20,7 @@ spec:
       containers:
         - name: jenkins
         #image with docker and kubectl
-          image: moustafasaber36/jenkins:docker
+          image: gcr.io/terraform-project-367105/jenkins-docker
           imagePullPolicy: Always
           ports:
             - name: http-port
